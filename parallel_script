@@ -38,7 +38,6 @@ pipeline {
         stage('DEPLOY') {
             steps {
                 echo 'this is deploy stage'
-                /* groovylint-disable-next-line DuplicateStringLiteral */
                 sh '''
                     sleep 5
                 '''
