@@ -3,44 +3,44 @@ pipeline {
 
     stages {
         stage('BUILD') {
-            steps {
-                echo 'this is build stage'
-                sh '''
+      steps {
+        echo 'this is build stage'
+        sh '''
                     sleep 5
                 '''
-            }
+      }
         }
 
         stage('parallel TEST') {
           parallel {
-                stage('TEST1 on safari') {
-                    steps {
-                        echo 'this is TEST1 stage'
-                        sh '''
+        stage('TEST1 on safari') {
+          steps {
+            echo 'this is TEST1 stage'
+            sh '''
                             sleep 5
                         '''
-                    }
-                }
-
-                stage('TEST2 on the chrome') {
-                    steps {
-                        echo 'this is TEST2 stage'
-                        sh '''
-                            sleep 5
-                        '''
-                    }
-                }
-            }
-
-            }
+          }
         }
 
-        stage('DEPLOY') {
-            steps {
-                echo 'this is deploy stage'
-                sh '''
+        stage('TEST2 on the chrome') {
+          steps {
+            echo 'this is TEST2 stage'
+            sh '''
+                            sleep 5
+                        '''
+          }
+        }
+          }
+        }
+
+    stage('DEPLOY') {
+      steps {
+        echo 'this is deploy stage'
+                /* groovylint-disable-next-line DuplicateStringLiteral */
+        sh '''
                     sleep 5
                 '''
-            }
-        }
+      }
     }
+    }
+}
